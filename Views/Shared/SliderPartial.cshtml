@@ -1,0 +1,57 @@
+﻿<style type="text/css">
+    .bx-wrapper .bx-pager {
+        bottom: -60px;
+    }
+
+    .bx-wrapper .bx-pager a {
+        border: solid #ccc 1px;
+        display: block;
+        margin: 0 5px;
+        padding: 3px;
+    }
+
+    .bx-wrapper .bx-pager a:hover,
+    .bx-wrapper .bx-pager a.active {
+        border: solid #5280DD 1px;
+    }
+
+    .bx-wrapper {
+        margin-bottom: 80px;
+    }
+</style>
+<div>
+    <ul id="slider" class="bxslider">
+        @foreach (var image in Model)
+        {
+            <li>
+                <img src="@Url.Content(image.ImagePath)" style="height:415px" />
+            </li>
+        }
+    </ul>
+    @*<div id="bx-pager">*@
+        @*@foreach (var image in Model)
+        {
+            <a data-slide-index="@image.Id" href=""><img src="@Url.Content(image.ImagePath)" /></a>
+        }*@
+        @*<a data-slide-index="1" href=""><img src="/images/thumbs/houses.jpg" /></a>
+        <a data-slide-index="2" href=""><img src="/images/thumbs/hill_fence.jpg" /></a>*@
+    @*</div>*@
+</div>
+<script>
+    $(document).ready(function() {
+        //$('#slider').bxSlider();
+        //$('.bx-wrapper').width('70%');
+    });
+    $('.bxslider').bxSlider({
+        buildPager: function (slideIndex) {
+            switch (slideIndex) {
+                case 0:
+                    return '<img src="/Content/images/AutoCompletePoweredBySDS-FinalApp.jpg" style="width:30px; height:30px">';
+                case 1:
+                    return '<img src="/Content/images/car navigation.png" style="width:30px; height:30px">';
+                //case 2:
+                    //return '<img src="/images/thumbs/hill_fence.jpg">';
+            }
+        }
+    });
+</script>

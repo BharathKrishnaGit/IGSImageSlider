@@ -1,0 +1,11 @@
+﻿@model IEnumerable<IGSImageSlider.Models.ImageGallery> 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Add Image", "AddImage", "ImageSlider", new { id = "linkaddimage"}, null) |
+    @Html.ActionLink("Delete Image", "DeleteImages", "ImageSlider", new { id = "linkdeleteimage" }, null)
+</p>
+@Html.Partial("~/Views/Shared/SliderPartial.cshtml", Model)
